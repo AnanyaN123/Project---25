@@ -1,0 +1,30 @@
+class Paper{
+    constructor(x,y){
+      var options={
+         restitution: 0.5,
+         friction: 0.5,
+         density: 1.0
+      }
+          
+          this.body = Bodies.circle(x,y,20,options);
+  
+          this.diameter = 20; 
+          World.add(world,this.body);
+
+          this.image = loadImage("paper.png");
+      }
+  
+      display(){
+          var pos = this.body.position;
+          var angle = this.body.angle;
+          push();
+          translate(pos.x, pos.y);
+          rotate(angle);   
+          fill("blue");   
+          //ellipseMode(RADIUS);
+          //ellipse(0, 0, this.diameter);
+          image(this.image, 0, this.diameter);
+          //this.image.scale = 0.5;
+          pop();
+      }
+  }
